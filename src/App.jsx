@@ -17,18 +17,12 @@ const App = ()=>{
   const dispatch = useDispatch()
   const {count} = useSelector(({NPage})=>NPage)
   const {incrementAsync} = useSelector(({load})=>load.effects.NPage)
-  // console.log('incrementAsync: ', incrementAsync);
   useEffect(()=>{
-    console.log('count: ', count);
+    console.log('incrementAsync: ', incrementAsync);
     console.log('dispatch: ', dispatch);
-    // dispatch({
-      
-    // })
   },[])
   return (
     <div className={styles.app}>
-    <Button type="primary">Primary Button</Button>
-    <img src={test} alt="" />
     </div>
   )
 }
