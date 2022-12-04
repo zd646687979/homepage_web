@@ -1,34 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useEffect, useState } from 'react'
+import styles from "./App.module.less"
+import {Button} from 'antd'
+import { useDispatch,useSelector } from 'react-redux';
+import {test} from './assets/image'
 
-function App() {
-  const [count, setCount] = useState(0)
+// function GetHLC(userId, cityId) {
+//   /// <summary>根据城市ID获取热线医生代表</summary>
+//   /// <param name="userId" type="int">用户ID</param>
+//   /// <param name="cityId" type="int">城市ID</param>
+//   /// <returns type="String" />
+//   return "张晓华"
+// }
 
+
+const App = ()=>{
+  const dispatch = useDispatch()
+  const {count} = useSelector(({NPage})=>NPage)
+  const {incrementAsync} = useSelector(({load})=>load.effects.NPage)
+  // console.log('incrementAsync: ', incrementAsync);
+  useEffect(()=>{
+    console.log('count: ', count);
+    console.log('dispatch: ', dispatch);
+    // dispatch({
+      
+    // })
+  },[])
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <div className={styles.app}>
+    <Button type="primary">Primary Button</Button>
+    <img src={test} alt="" />
     </div>
   )
 }
-
 export default App
